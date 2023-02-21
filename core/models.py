@@ -17,7 +17,7 @@ class Subject (models.Model):
 
 class Course(models.Model):
     owner = models.ForeignKey(User, related_name='courses_created',on_delete=models.CASCADE)
-    Subject = models.ForeignKey(Subject,related_name='courses',on_delete=models.CASCADE)
+    subject = models.ForeignKey(Subject,related_name='courses',on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200,unique=True)
     overview = models.TextField()
@@ -33,11 +33,11 @@ class Module(models.Model):
     course = models.ForeignKey(Course, related_name="modules",on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    order = OrderField(blank=True, for_fields=['course'])
+    order = OrderField(blank=True,null=True, for_fields=['course'])
     
     class Meta:
         ordering = ['order']
-        
+
     def __str__(self):
         return f'{self.order}. {self.title}'
     
@@ -47,9 +47,9 @@ class Content(models.Model):
                                      limit_choices_to={'model_in':(
                                         'text','video','image','file'
                                      )})
-    object_id = models.PositiveBigIntegerField()
+    object_id = models.PositiveIntegerField()
     item = GenericForeignKey('content_type','object_id')
-    order = OrderField(blank=True, for_fields=['moduls'])
+    order = OrderField(blank=True, null=True, for_fields=['moduls'])
 
     class Meta:
         ordering = ['order']
