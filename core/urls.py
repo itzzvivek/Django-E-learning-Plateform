@@ -10,4 +10,7 @@ urlpatterns =[
     path('module/<int:module_id>/content/<module_name>/create/',views.ContentCreateUpdateView.as_view(),name = 'module_content_create'),
     path('module/<int:module_id>/content/<module_name>/<id>',views.ContentCreateUpdateView.as_view(),name='module_content_update'),
     path('content/<int:id>/delete/',views.ContentDeleteView.as_view(),name='module_content_delete'),
+    path('module/<int:module_id>',views.moduleContentListView.as_view(),name='module_content_list'),
+    path('module/order',views.ModuleOrderView.as_view,name='module_order'),
+    path('module/order',views.ContentOrderView.as_view,name='content_order')
 ]
