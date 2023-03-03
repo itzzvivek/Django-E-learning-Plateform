@@ -13,6 +13,6 @@ urlpatterns =[
     path('module/<int:module_id>',views.moduleContentListView.as_view(),name='module_content_list'),
     path('module/order',views.ModuleOrderView.as_view,name='module_order'),
     path('module/order',views.ContentOrderView.as_view,name='content_order'),
-    path('subject/slug:subject>/',views.CourseListView.as_view(), name='course_list_subject'),
-    path('<slug:slug>/',views.CourseListView.as_view(),name='course_details')
+    path('subject/<slug:subject>/',views.CourseListView.as_view(), name='course_list_subject'),
+    path('<slug:slug>/',views.CourseListView.as_view(),name='course_detail')
 ]

@@ -38,7 +38,7 @@ class ManageCourseListView(OwnerCourseMixin, ListView):
     template_name = 'core/manage/course/list.html'
     permission_required = 'core.view_course'
 
-class CourseUpdateView(OwnerCourseEditMixin, UpdateView):
+class CourseUpdateView(OwnerCourseEditMixin, UpdateView): 
     permission_required = 'core.change_course'
 
 class CourseCreateView(OwnerCourseEditMixin, CreateView):
@@ -148,7 +148,7 @@ class CourseListView(TemplateResponseMixin,View):
     model = Course
     template_name = 'core/course/list.html'
 
-    def get(self,request,subject=None):
+    def get(self, request,subject=None):
         subjects = Subject.objects.annotate(
                     total_courses = Count('courses'))
         courses = Course.objects.annotate(
@@ -163,3 +163,8 @@ class CourseListView(TemplateResponseMixin,View):
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'core/course/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['enroll_form'] = CourseEnrollFrom(initial={'course':self.object})
+        return context
