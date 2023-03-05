@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import Course,Module,Subject
+
+
 # Register your models here.
 
 admin.site.register(Subject)
@@ -18,5 +20,5 @@ class CourseAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     inlines = [ModuleInline]
 
-
-
+#memcache admin index site
+admin.site.index_template = 'memcache_status/admin_index.html'
