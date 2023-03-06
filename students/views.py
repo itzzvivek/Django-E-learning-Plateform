@@ -9,6 +9,7 @@ from .forms import CourseEnrollForm
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from core.models import Course
+from django.views.decorators.cache import cache_page
 # Create your views here.
 
 class StudentRegistrationView(CreateView):

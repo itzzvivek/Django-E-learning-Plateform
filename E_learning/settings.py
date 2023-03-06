@@ -46,7 +46,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.cache.UpdateCacheMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django.middleware.cache.FatchFromCachedMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -140,3 +142,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 from django.urls import reverse_lazy
 
 LOOTS_REDIRECT_URL = reverse_lazy('student_course_list')
+
+CACHE_MIDDLEWARE_ALIAS = 'default'
+CACHES_MIDDLEWARE_SECOND = 60 * 15 #15 minutes
+CACHES_MIDDLEWARE_KEY_PREFIX = 'E_learning'
