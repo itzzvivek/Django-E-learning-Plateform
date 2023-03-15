@@ -8,6 +8,7 @@ from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import IsAuthenticated 
 from rest_framework import viewsets
 from .serializers import CourseSerializer
+from rest_framework.decorators import action
 
 class CourseEnrollView(APIView):
     authentication_classes = (BasicAuthentication)
@@ -30,3 +31,12 @@ class CourseEnrollView(APIView):
 class CourseViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
+
+    @action(detail=True,
+            method=['post'],
+            authentication_classes=[BasicAuthentication],
+            Permission_classes = [IsAuthenticated])
+    def enroll(self,request,*args, **kwargs):
+        course = self.get_obbject()
+        course.students.add(request.user)
+        return Response({'enrolled':True})
