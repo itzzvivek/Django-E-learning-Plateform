@@ -147,3 +147,10 @@ LOOTS_REDIRECT_URL = reverse_lazy('student_course_list')
 # CACHE_MIDDLEWARE_ALIAS = 'default'
 # CACHES_MIDDLEWARE_SECOND = 60 * 15 #15 minutes
 # CACHES_MIDDLEWARE_KEY_PREFIX = 'E_learning'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSIONS_CLASSES':[
+        'rest_framework.permissions.DjangoModelPermissionOrAnonReadyOnly'
+    ]
+}
