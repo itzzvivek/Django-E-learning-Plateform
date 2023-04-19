@@ -54,18 +54,11 @@
                         <a class="btn-sm btn-pill me-1 mb-1 text-dark fw-medium px-6 active" id="pills-all-tab" data-bs-toggle="tab" href="#pills-all" role="tab" aria-controls="pills-all" aria-selected="true">
                             All Categories
                         </a>
-                        <a class="btn-sm btn-pill me-1 mb-1 text-dark fw-medium px-6" id="pills-art-tab" data-bs-toggle="tab" href="#pills-art" role="tab" aria-controls="pills-art" aria-selected="false">
-                            Art
+                        {% for i in category %}
+                        <a class="btn-sm btn-pill me-1 mb-1 text-dark fw-medium px-6" id="pills-art-tab" data-bs-toggle="tab" href="#pills-art" role="tab" aria-controls="pills-{{i.id}}" aria-selected="false">
+                            {{ i.name }}
                         </a>
-                        <a class="btn-sm btn-pill me-1 mb-1 text-dark fw-medium px-6" id="pills-exercise-tab" data-bs-toggle="tab" href="#pills-exercise" role="tab" aria-controls="pills-exercise" aria-selected="false">
-                            Exercise
-                        </a>
-                        <a class="btn-sm btn-pill me-1 mb-1 text-dark fw-medium px-6" id="pills-music-tab" data-bs-toggle="tab" href="#pills-music" role="tab" aria-controls="pills-music" aria-selected="false">
-                            Music
-                        </a>
-                        <a class="btn-sm btn-pill me-1 mb-1 text-dark fw-medium px-6" id="pills-software-dev-tab" data-bs-toggle="tab" href="#pills-software-dev" role="tab" aria-controls="pills-software-dev" aria-selected="false">
-                            Software Development
-                        </a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -2674,96 +2667,24 @@ ts/img/avatars/avatar-3.jpg" alt="..." class="avatar-img rounded-circle">
             </div>
 
             <div class="row row-cols-2 row-cols-md-3 row-cols-xl-5 row-cols-wd-6">
+                {% for i in category %}
                 <div class="col mb-md-6 mb-4 px-2 px-md-4">
                     <!-- Card -->
                     <a href="course-list-v6.html" class="card bg-lavender hover-gradient-1 rounded-lg p-md-5 p-3 h-210p text-center lift">
                         <!-- Image -->
                         <div class="mt-7 text-gigas display-4">
-                            <i class="fas fa-bezier-curve"></i>
+                            <i class="{{i.icon}}"></i>
 
                             <!-- Footer -->
                             <div class="card-footer px-0 pb-0 pt-4">
-                                <h5 class="mb-0 line-clamp-2 text-gigas">Design</h5>
+                                <h5 class="mb-0 line-clamp-2 text-gigas">{{i.name}}</h5>
                             </div>
                         </div>
                     </a>
                 </div>
-
-                <div class="col mb-md-6 mb-4 px-2 px-md-4">
-                    <!-- Card -->
-                    <a href="course-list-v6.html" class="card bg-lavender hover-gradient-1 rounded-lg p-md-5 p-3 h-210p text-center lift">
-                        <!-- Image -->
-                        <div class="mt-7 text-gigas display-4">
-                            <i class="fas fa-briefcase"></i>
-
-                            <!-- Footer -->
-                            <div class="card-footer px-0 pb-0 pt-4">
-                                <h5 class="mb-0 line-clamp-2 text-gigas">Business</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col mb-md-6 mb-4 px-2 px-md-4">
-                    <!-- Card -->
-                    <a href="course-list-v6.html" class="card bg-lavender hover-gradient-1 rounded-lg p-md-5 p-3 h-210p text-center lift">
-                        <!-- Image -->
-                        <div class="mt-7 text-gigas display-4">
-                            <i class="fas fa-laptop-code"></i>
-
-                            <!-- Footer -->
-                            <div class="card-footer px-0 pb-0 pt-4">
-                                <h5 class="mb-0 line-clamp-2 text-gigas">Software Development</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col mb-md-6 mb-4 px-2 px-md-4">
-                    <!-- Card -->
-                    <a href="course-list-v6.html" class="card bg-lavender hover-gradient-1 rounded-lg p-md-5 p-3 h-210p text-center lift">
-                        <!-- Image -->
-                        <div class="mt-7 text-gigas display-4">
-                            <i class="far fa-file-alt"></i>
-
-                            <!-- Footer -->
-                            <div class="card-footer px-0 pb-0 pt-4">
-                                <h5 class="mb-0 line-clamp-2 text-gigas">Personal Development</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col mb-md-6 mb-4 px-2 px-md-4">
-                    <!-- Card -->
-                    <a href="course-list-v6.html" class="card bg-lavender hover-gradient-1 rounded-lg p-md-5 p-3 h-210p text-center lift">
-                        <!-- Image -->
-                        <div class="mt-7 text-gigas display-4">
-                            <i class="fas fa-camera"></i>
-
-                            <!-- Footer -->
-                            <div class="card-footer px-0 pb-0 pt-4">
-                                <h5 class="mb-0 line-clamp-2 text-gigas">Photography</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col d-xl-none d-wd-block mb-md-6 mb-4 px-2 px-md-4">
-                    <!-- Card -->
-                    <a href="course-list-v6.html" class="card bg-lavender hover-gradient-1 rounded-lg p-md-5 p-3 h-210p text-center lift">
-                        <!-- Image -->
-                        <div class="mt-7 text-gigas display-4">
-                            <i class="fas fa-music"></i>
-
-                            <!-- Footer -->
-                            <div class="card-footer px-0 pb-0 pt-4">
-                                <h5 class="mb-0 line-clamp-2 text-gigas">Audio + Music</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                {% endfor %}
             </div>
+            
         </div>
     </section>
 
