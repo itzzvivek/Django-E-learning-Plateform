@@ -5,7 +5,7 @@
     ================================================== -->
     <header class="py-8 py-md-11" style="background-image: none;">
         <div class="container text-center py-xl-2">
-            <h1 class="display-4 fw-semi-bold mb-0">Courses Grid 02</h1>
+            <h1 class="display-4 fw-semi-bold mb-0">Courses</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-scroll justify-content-center">
                     <li class="breadcrumb-item">
@@ -14,7 +14,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item text-gray-800 active" aria-current="page">
-                        Courses Grid 02
+                        Courses 
                     </li>
                 </ol>
             </nav>
@@ -77,99 +77,12 @@
 
                         <div id="coursefiltercollapse1" class="collapse show mt-n2 px-6 pb-6" aria-labelledby="coursefilter1" data-parent="#courseSidebar">
                             <ul class="list-unstyled list-group list-checkbox">
+                                {% for i in category%}
                                 <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="categorycustomcheckone">
-                                    <label class="custom-control-label font-size-base" for="categorycustomcheckone">Art (8)</label>
-                                </li>
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="categorycustomcheck2">
-                                    <label class="custom-control-label font-size-base" for="categorycustomcheck2">Exercise (8)</label>
-                                </li>
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="categorycustomcheck3">
-                                    <label class="custom-control-label font-size-base" for="categorycustomcheck3">Material Design (7)</label>
-                                </li>
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="categorycustomcheck4">
-                                    <label class="custom-control-label font-size-base" for="categorycustomcheck4">Software Development (6)</label>
-                                </li>
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="categorycustomcheck5">
-                                    <label class="custom-control-label font-size-base" for="categorycustomcheck5">Music (6)</label>
-                                </li>
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="categorycustomcheck6">
-                                    <label class="custom-control-label font-size-base" for="categorycustomcheck6">Photography (6)</label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="border rounded mb-6 @@widgetBG">
-                        <!-- Heading -->
-                        <div id="coursefilter2">
-                            <h4 class="mb-0">
-                                <button class="p-6 text-dark fw-medium d-flex align-items-center collapse-accordion-toggle line-height-one" type="button" data-bs-toggle="collapse" data-bs-target="#coursefiltercollapse2" aria-expanded="true" aria-controls="coursefiltercollapse2">
-                                    Instructors
-                                    <span class="ms-auto text-dark d-flex">
-                                        <!-- Icon -->
-                                        <svg width="15" height="2" viewBox="0 0 15 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="15" height="2" fill="currentColor"/>
-                                        </svg>
-
-                                        <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 7H15V9H0V7Z" fill="currentColor"/>
-                                            <path d="M6 16L6 8.74228e-08L8 0L8 16H6Z" fill="currentColor"/>
-                                        </svg>
-
-                                    </span>
-                                </button>
-                            </h4>
-                        </div>
-
-                        <div id="coursefiltercollapse2" class="collapse show mt-n2 px-6 pb-6" aria-labelledby="coursefilter2" data-parent="#courseSidebar">
-                            <!-- Search -->
-                            <form class="mb-4">
-                                <div class="input-group">
-                                    <input class="form-control form-control-sm border-end-0 shadow-none" type="search" placeholder="Search" aria-label="Search">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-sm btn-outline-white border-start-0 text-dark bg-transparent" type="submit">
-                                            <!-- Icon -->
-                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M8.80758 0C3.95121 0 0 3.95121 0 8.80758C0 13.6642 3.95121 17.6152 8.80758 17.6152C13.6642 17.6152 17.6152 13.6642 17.6152 8.80758C17.6152 3.95121 13.6642 0 8.80758 0ZM8.80758 15.9892C4.8477 15.9892 1.62602 12.7675 1.62602 8.80762C1.62602 4.84773 4.8477 1.62602 8.80758 1.62602C12.7675 1.62602 15.9891 4.8477 15.9891 8.80758C15.9891 12.7675 12.7675 15.9892 8.80758 15.9892Z" fill="currentColor"/>
-                                                <path d="M19.762 18.6121L15.1007 13.9509C14.7831 13.6332 14.2687 13.6332 13.9511 13.9509C13.6335 14.2682 13.6335 14.7831 13.9511 15.1005L18.6124 19.7617C18.7712 19.9205 18.9791 19.9999 19.1872 19.9999C19.395 19.9999 19.6032 19.9205 19.762 19.7617C20.0796 19.4444 20.0796 18.9295 19.762 18.6121Z" fill="currentColor"/>
-                                            </svg>
-
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-
-                            <ul class="list-unstyled list-group list-checkbox list-checkbox-limit">
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="instructorscustomcheck1">
-                                    <label class="custom-control-label font-size-base" for="instructorscustomcheck1">Chris Convrse (03)</label>
-                                </li>
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="instructorscustomcheck2">
-                                    <label class="custom-control-label font-size-base" for="instructorscustomcheck2">Morten Rand (15)</label>
-                                </li>
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="instructorscustomcheck3">
-                                    <label class="custom-control-label font-size-base" for="instructorscustomcheck3">Rayi Villalobos (125)</label>
-                                </li>
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="instructorscustomcheck4">
-                                    <label class="custom-control-label font-size-base" for="instructorscustomcheck4">James William (1.584)</label>
-                                </li>
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="instructorscustomcheck5">
-                                    <label class="custom-control-label font-size-base" for="instructorscustomcheck5">Villalobos (584)</label>
-                                </li>
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="instructorscustomcheck6">
-                                    <label class="custom-control-label font-size-base" for="instructorscustomcheck6">Rand joe (44)</label>
-                                </li>
+                                    <input type="checkbox" class="custom-control-input" id="category-{{i.id}}">
+                                    <label class="custom-control-label font-size-base" for="category-{{i.id}}">{{i.name}}({{i.course_set.all.count}})</label>
+                                </li> 
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -238,18 +151,12 @@
 
                         <div id="coursefiltercollapse4" class="collapse show mt-n2 px-6 pb-6" aria-labelledby="coursefilter4" data-parent="#courseSidebar">
                             <ul class="list-unstyled list-group list-checkbox">
+                                {% for i in level %}
                                 <li class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="levelcustomcheck1">
-                                    <label class="custom-control-label font-size-base" for="levelcustomcheck1">Beginner (03)</label>
+                                    <label class="custom-control-label font-size-base" for="levelcustomcheck1">{{i.name}} ({{i.course_set.all.count}})</label>
                                 </li>
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="levelcustomcheck2">
-                                    <label class="custom-control-label font-size-base" for="levelcustomcheck2">Intermediate (15)</label>
-                                </li>
-                                <li class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="levelcustomcheck3">
-                                    <label class="custom-control-label font-size-base" for="levelcustomcheck3">Advanced (126)</label>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
