@@ -16,9 +16,11 @@ def HOME(request):
 def Single_Course(request):
     category = Categories.get_all_category(Categories)
     level = Level.objects.all()
+    course = Course.objects.all()
     context={
         'category':category,
-        'level':level
+        'level':level,
+        'course':course
     }
     return render(request,'main/single_course.html', context)
 
