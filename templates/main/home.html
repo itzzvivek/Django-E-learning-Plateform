@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% load course_tags %}
 {% block content %}
+
     <!-- HERO
     ================================================== -->
     <section class="py-13 pt-xl-14 mt-n13 pb-lg-12 bg-cover position-relative" style="background: linear-gradient(90deg, #FFEBE5 0.13%, #EDEAF6 100.01%);">
@@ -159,8 +161,8 @@
                                             </div>
 
                                             <div class="col-auto px-2 text-right">
-                                                <del class="font-size-sm">₹ 959</del>
-                                                <ins class="h4 mb-0 d-block mb-lg-n1">₹ {{i.price}}</ins>
+                                                <del class="font-size-sm">{{i.price}}</del>
+                                                <ins class="h4 mb-0 d-block mb-lg-n1">₹ {% discount_calculation i.price i.discount %}</ins>
                                             </div>
                                         </div>
                                     </div>
@@ -271,8 +273,8 @@
                                             </div>
 
                                             <div class="col-auto px-2 text-right">
-                                                <del class="font-size-sm">₹ 959</del>
-                                                <ins class="h4 mb-0 d-block mb-lg-n1">₹ {{i.price}}</ins>
+                                                <del class="font-size-sm">{{ i.price }}</del>
+                                                <ins class="h4 mb-0 d-block mb-lg-n1">₹ {% discount_calculation i.price i.discount %}</ins>
                                             </div>
                                         </div>
                                     </div>
