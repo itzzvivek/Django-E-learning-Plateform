@@ -24,6 +24,7 @@ urlpatterns = [
     path('',views.HOME,name='home'),
     path('base',views.BASE,name='base'),
     path('courses',views.Single_Course,name='single_course'),
+    path('product/filter-data',views.filter_data,name='filter-data'),
     path('about',views.about,name='about'),
     path('contact',views.contact,name='contact'),
     path('account/register',user_login.register,name='register'),
