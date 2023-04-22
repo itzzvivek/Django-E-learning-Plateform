@@ -19,10 +19,14 @@ def Single_Course(request):
     category = Categories.get_all_category(Categories)
     level = Level.objects.all()
     course = Course.objects.all()
+    freecourse_count = Course.objects.filter(price=0).count()
+    paidcourse_count = Course.objects.filter(price__gte=1).count()
     context={
         'category':category,
         'level':level,
-        'course':course
+        'course':course,
+        'freecourse_count':freecourse_count,
+        'paidcourse_count': paidcourse_count
     }
     return render(request,'main/single_course.html', context)
 
