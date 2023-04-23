@@ -60,3 +60,11 @@ def about(request):
 def contact(request):
     return render(request,'main/contact.html')
  
+def search_course(request):
+    query = request.GET['query']
+    course = Course.objects.filter(title__icontains=query)
+    context={
+        'course':course
+    }
+
+    return render(request,'search/search.html',context)
