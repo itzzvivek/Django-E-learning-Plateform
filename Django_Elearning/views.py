@@ -68,3 +68,6 @@ def search_course(request):
     }
 
     return render(request,'search/search.html',context)
+
+def Course_details(request,slug):
+    return render(request,'course/course_details.html')
