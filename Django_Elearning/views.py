@@ -55,19 +55,45 @@ def filter_data(request):
     return JsonResponse({'data':t})
 
 def about(request):
-    return render(request,'main/about.html')
+    category = Categories.get_all_category(Categories)
+    context={
+        'category':category
+    }
+    return render(request,'main/about.html', context)
 
 def contact(request):
-    return render(request,'main/contact.html')
+    category = Categories.get_all_category(Categories)
+    context = {
+        'category':category
+    }
+    return render(request,'main/contact.html',context)
  
 def search_course(request):
     query = request.GET['query']
     course = Course.objects.filter(title__icontains=query)
+    category = Categories.get_all_category(Categories)
+
     context={
-        'course':course
+        'course':course,
+        'category':category
     }
 
     return render(request,'search/search.html',context)
 
 def Course_details(request,slug):
-    return render(request,'course/course_details.html')
+    course = Course.objects.filter(slug=slug)
+    if course.exists():
+        course = course.first()
+    else:
+        return redirect('404')
+    context={
+        'course':course,
+    }
+    return render(request,'course/course_details.html',context)
+
+def page_not_found(request):
+    category = Categories.get_all_category(Categories)
+    context={
+        'category':category
+    }
+    return render(request,'error/404.html', context)

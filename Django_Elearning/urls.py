@@ -23,6 +23,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('',views.HOME,name='home'),
     path('base',views.BASE,name='base'),
+    path('404',views.page_not_found,name='404'),
     path('courses',views.Single_Course,name='single_course'),
     path('course/<slug:slug>',views.Course_details,name = 'course_details'),
     path('product/filter-data',views.filter_data,name='filter-data'),
