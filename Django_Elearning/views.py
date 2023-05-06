@@ -81,6 +81,7 @@ def search_course(request):
     return render(request,'search/search.html',context)
 
 def Course_details(request,slug):
+    category = Categories.get_all_category(Categories)
     course = Course.objects.filter(slug=slug)
     if course.exists():
         course = course.first()
@@ -88,6 +89,7 @@ def Course_details(request,slug):
         return redirect('404')
     context={
         'course':course,
+        'category':category
     }
     return render(request,'course/course_details.html',context)
 
