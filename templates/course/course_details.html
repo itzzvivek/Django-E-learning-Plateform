@@ -109,30 +109,26 @@
                     <div class="row row-cols-lg-2 mb-8">
                         <div class="col-md">
                             <ul class="list-style-v1 list-unstyled">
-                                <li>Become a UI/UX designer.</li>
-                                <li>You will be able to start earning money skills.</li>
-                                <li>Build a UI project from beginning to end.</li>
-                                <li>Work with colors & fonts.</li>
-                                <li>You will create your own UI Kit.</li>
+                                {% for learn in course.What_you_learn.all|slice:"0:5" %}
+                                <li>{{learn.points}}</li>
+                                {% endfor %}
                             </ul>
                         </div>
 
                         <div class="col-md">
                             <ul class="list-style-v1 list-unstyled ms-xl-6">
-                                <li>Build & test a complete mobile app.</li>
-                                <li>Learn to design mobile apps & websites.</li>
-                                <li>Design 3 different logos.</li>
-                                <li>Create low-fidelity wireframe.</li>
-                                <li>Downloadable exercise files.</li>
+                                {% for learn in course.What_you_learn.all|slice:"5:12" %}
+                                <li>{{learn.points}}</li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
 
                     <h3 class="mb-5">Requirements</h3>
                     <ul class="list-style-v2 list-unstyled">
-                        <li>We do not require any previous experience or pre-defined skills to take this course. A great orientation would be enough to master UI/UX design.</li>
-                        <li>A computer with a good internet connection.</li>
-                        <li>Adobe Photoshop (OPTIONAL)</li>
+                        {% for requirements in course.requirements_set.all %}
+                        <li>{{requirements.points}}</li>
+                        {% endfor %}
                     </ul>
                 </div>
 
