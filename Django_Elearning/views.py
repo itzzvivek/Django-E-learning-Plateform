@@ -1,5 +1,5 @@
 from django.shortcuts import redirect,render
-from core.models import Categories,Course,Level
+from core.models import Categories,Course,Level,UserCourse
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 from django.db.models import Sum
@@ -84,6 +84,11 @@ def search_course(request):
 def Course_details(request,slug):
     category = Categories.get_all_category(Categories)
     time_duration = Video.objects.filter(course_slug=slug).aggregate(sum=Sum('time_duration'))
+    course_id = Course.objects.get(slug=slug)
+    try:
+        check_enroll = UserCourse.objects.get(user = request.user, course=course_id )
+    except UserCourse.DoesNotExist:
+        check_enroll = None
     course = Course.objects.filter(slug=slug)
     if course.exists():
         course = course.first()
@@ -92,7 +97,8 @@ def Course_details(request,slug):
     context={
         'course':course,
         'category':category,
-        'time_duration': time_duration
+        'time_duration': time_duration,
+        'check_enroll':check_enroll
     }
     return render(request,'course/course_details.html',context)
 
@@ -102,3 +108,14 @@ def page_not_found(request):
         'category':category
     }
     return render(request,'error/404.html', context)
+
+def checkout(request,slug):
+    course = Course.objects.get(slug=slug)
+    if course.price==0:
+        course = UserCourse(
+            user = request.user,
+            course = course,
+        )
+        course.save()
+        return redirect('home')
+    return render(request,'checkout/checkout.html')

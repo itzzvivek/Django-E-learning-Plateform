@@ -161,10 +161,17 @@
                                                 </ul>
                                             </div>
 
-                                            <div class="col-auto px-2 text-right">
-                                                <del class="font-size-sm">{{i.price}}</del>
-                                                <ins class="h4 mb-0 d-block mb-lg-n1">₹ {% discount_calculation i.price i.discount %}</ins>
-                                            </div>
+                                            {% if i.price == 0 %}
+                                        <div class="col-auto px-2 text-right">
+                                            <ins class="h4 mb-0 d-block mb-lg-n1">Free</ins>
+                                        </div>
+                                        {% else %}
+
+                                        <div class="col-auto px-2 text-right">
+                                            <del class="font-size-sm">${{i.price}}</del>
+                                            <ins class="h4 mb-0 d-block mb-lg-n1">${% discount_calculation i.price i.discount %}</ins>
+                                        </div>
+                                        {% endif %}
                                         </div>
                                     </div>
                                 </div>

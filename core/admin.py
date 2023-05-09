@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Categories,Author,Course,Level,What_you_learn,Requirements,Lesson,Video,Language
+from .models import Categories,Author,Course,Level,What_you_learn,Requirements,Lesson,Video,Language,UserCourse
 
 # Register your models here.
 
@@ -24,3 +24,4 @@ admin.site.register(Requirements)
 admin.site.register(Video)
 admin.site.register(Lesson)
 admin.site.register(Language)
+admin.site.register(UserCourse)

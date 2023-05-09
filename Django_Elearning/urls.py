@@ -33,5 +33,6 @@ urlpatterns = [
     path('account/register',user_login.register,name='register'),
     path('account/',include('django.contrib.auth.urls')),
     path('login',user_login.login,name='login'),
+    path('checkout/<slug:slug>',views.checkout,name='checkout')
     
 ] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
