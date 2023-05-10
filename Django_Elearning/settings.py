@@ -143,3 +143,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'vivekwarkade000@gmail.com'
 EMAIL_HOST_PASWORD = 'qfwounwlgaegdkqm'
+
+
+KEY_ID = "rzp_test_9b1aBEKP1qFlRo"
+KEY_SECRET = "pouZAhIEDUBrV3Yoivbe5Q8l"
