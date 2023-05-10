@@ -1,8 +1,9 @@
 from django.shortcuts import redirect,render
-from core.models import Categories,Course,Level,UserCourse
+from core.models import Categories,Course,Level,UserCourse,Video
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 from django.db.models import Sum
+from django.contrib import messages
 
 def BASE(request):
     return render(request,'base.html')
@@ -117,11 +118,12 @@ def checkout(request,slug):
             course = course,
         )
         course.save()
-        return redirect('home')
+        messages.success(request,'Course Are Successfully Enrolled ! ')
+        return redirect('my_course')
     return render(request,'checkout/checkout.html')
 
 def my_course(request):
-    course = UserCourse.object.filter(user=request.user)
+    course = UserCourse.objects.filter(user=request.user)
     context={
         'course':course
     }
