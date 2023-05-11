@@ -35,6 +35,7 @@ urlpatterns = [
     path('login',user_login.login,name='login'),
     path('checkout/<slug:slug>',views.checkout,name='checkout'),
     path('my_course',views.my_course,name='my_course'),
-    path('verify_payment',views.verify_payment,name='verify_payment')
+    path('verify_payment',views.verify_payment,name='verify_payment'),
+    path('course/watch_course/<slug:slug>',views.watch_course,name='watch_course')
     
 ] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

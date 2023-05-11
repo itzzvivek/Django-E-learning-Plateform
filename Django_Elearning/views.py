@@ -218,3 +218,24 @@ def verify_payment(request):
             return render(request,'verify_payment/success.html',context)
         except:
             return render(request,'verify_payment/fail.html')
+        
+def watch_course(request,slug):
+    lecture = request.GET.get('lecture')
+    course_id = Course.objects.get(slug=slug)
+    course = Course.objects.filter(slug=slug)
+    try:
+        check_enroll = UserCourse.objects.get(user=request.user, course=course_id)
+        video = Video.objects.get(id=lecture)
+        if course.exists():
+            course = course.first()
+        else:
+            return redirect('404')
+    except UserCourse.DoesNotExist:
+        return redirect('404')
+    
+    context={
+        'course':course,
+        'video':video,
+        'lecture':lecture
+    }
+    return render(request,'course/watch_course.html',context)
