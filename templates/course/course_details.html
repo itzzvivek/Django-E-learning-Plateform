@@ -179,10 +179,17 @@
                                         <div class="text-secondary d-flex">
                                             <i class="fa fa-youtube-play" aria-hidden="true" style="color:red"></i>
                                         </div>
-
+                                        {% if video.preview == True %}
+                                            <a href="https://www.youtube.com/watch?v={{video.youtube_id}} " class="rounded" data-fancybox>
                                         <div class="ms-4">
                                             {{video.title}}
                                         </div>
+                                        </a>
+                                        {% else %}
+                                        <div class="ms-4" data-toggle="tooltip" title="Enroll this Course!">
+                                            {{video.title}}
+                                        </div>
+                                        {% endif %}
                                     </div>
 
                                     <div class="d-flex align-items-center overflow-auto overflow-md-visible flex-shrink-all">
@@ -559,7 +566,7 @@
 
                                 </div>
                                 <h6 class="mb-0 ms-3 me-auto">Enrolled</h6>
-                                <span>1982 students</span>
+                                <span>{{course.usercourse_set.all.count}} students</span>
                             </li>
                             <li class="list-group-item d-flex align-items-center py-3" style="background-color:#F7F9FB;">
                                 <div class="text-secondary d-flex icon-uxs">
