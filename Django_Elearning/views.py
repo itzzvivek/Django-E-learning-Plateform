@@ -90,7 +90,7 @@ def search_course(request):
 
 def Course_details(request,slug):
     category = Categories.get_all_category(Categories)
-    time_duration = Video.objects.filter(course_slug=slug).aggregate(sum=Sum('time_duration'))
+    time_duration = Video.objects.filter(course__slug=slug).aggregate(sum=Sum('time_duration'))
     course_id = Course.objects.get(slug=slug)
     try:
         check_enroll = UserCourse.objects.get(user = request.user, course=course_id )

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Checkout{% endblock %}
-{% load template_tags %}
+{% load course_tags %}
 {% block content %}
 <!-- PAGE TITLE
     ================================================== -->
@@ -485,4 +485,5 @@
     var rzpl = new Razorpay(options);
     rzpl.open();
 </script>
+{% endif %}
 {% endblock %}
